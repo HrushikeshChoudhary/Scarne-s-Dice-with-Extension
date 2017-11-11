@@ -50,7 +50,7 @@ public class MainActivity extends AppCompatActivity {
 
         if(numberOnDice == 1 || numberOnDice2 == 1){
             usersTurnScore = 0;
-            turnScore.setText(Integer.toString(numberOnDice));
+            turnScore.setText(Integer.toString(1));
             numberOnDice = 1;
             turnScore.setText("X");
             if (numberOnDice == 1 && numberOnDice2 == 1)
@@ -62,6 +62,7 @@ public class MainActivity extends AppCompatActivity {
             if(numberOnDice == numberOnDice2) {
                 equalNumber = true;
                 holdScore(view);
+                equalNumber = false;
             }
             else
                 equalNumber = false;
@@ -70,7 +71,7 @@ public class MainActivity extends AppCompatActivity {
             if (!userTurn) {
                 rollButton.setEnabled(false);
                 holdButton.setEnabled(false);
-                if(usersTurnScore<20 && numberOnDice!=1 && numberOnDice2!=1 ) {
+                if(usersTurnScore<20 && numberOnDice!=1 && numberOnDice2!=1 && usersTurnScore+compsScore < 100 ) {
                     final android.os.Handler handler = new android.os.Handler();
                     handler.postDelayed(new Runnable() {
                         @Override
@@ -114,8 +115,9 @@ public class MainActivity extends AppCompatActivity {
         if (userTurn) {
             userScore = (TextView) findViewById(R.id.userScore);
             if(oneOnBoth) {
-                usersScore -= usersScore;
+                usersScore = 0;
                 userTurn = false;
+                oneOnBoth = false;
             } else {
                 usersScore += usersTurnScore;
             }
@@ -134,20 +136,24 @@ public class MainActivity extends AppCompatActivity {
         else {
             computerScore = (TextView) findViewById(R.id.computerScore);
             if(oneOnBoth) {
-                compsScore -= compsScore;
-
+                compsScore = 0;
+                userTurn = true;
+                oneOnBoth = false;
             } else {
                 compsScore += usersTurnScore;
             }
 
             computerScore.setText(Integer.toString(compsScore));
             turnScore.setText(Integer.toString(usersTurnScore));
-            if(!equalNumber)
+            if(!equalNumber) {
                 userTurn = true;
-            else
+                turn.setText("Your");
+            }
+            else {
                 userTurn = false;
 
-            turn.setText("Your");
+            }
+
         }
         oneOnBoth = false;
         usersTurnScore = 0;
