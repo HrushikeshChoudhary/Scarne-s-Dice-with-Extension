@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.hrushikesh.scarnedice.MainActivity">
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="28dp"
+        android:layout_marginStart="28dp"
+        android:paddingLeft="10dp"
+        android:paddingTop="20dp"
+        android:text="Your Score:"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="16dp" />
+
+    <TextView
+        android:id="@+id/userScore"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/textView"
+        android:layout_alignBottom="@+id/textView"
+        android:layout_toEndOf="@+id/textView"
+        android:layout_toRightOf="@+id/textView"
+        android:paddingLeft="10dp"
+        android:paddingTop="20dp"
+        android:text="0"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintLeft_toRightOf="@+id/textView"
+        tools:layout_editor_absoluteY="16dp" />
+    <!--app:layout_constraintRight_toLeftOf="@+id/userScore"-->
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/userScore"
+        android:layout_alignBottom="@+id/userScore"
+        android:layout_alignEnd="@+id/button4"
+        android:layout_alignRight="@+id/button4"
+        android:layout_marginEnd="21dp"
+        android:layout_marginRight="21dp"
+        android:paddingLeft="10dp"
+        android:paddingTop="20dp"
+        android:text="Computer's Score:"
+        app:layout_constraintLeft_toRightOf="@+id/userScore"
+        tools:layout_editor_absoluteY="16dp" />
+
+    <TextView
+        android:id="@+id/computerScore"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/textView4"
+        android:layout_alignBottom="@+id/textView4"
+        android:layout_alignEnd="@+id/button4"
+        android:layout_alignRight="@+id/button4"
+        android:paddingLeft="10dp"
+        android:paddingTop="20dp"
+        android:text="0"
+        app:layout_constraintLeft_toRightOf="@+id/textView4"
+        tools:layout_editor_absoluteY="16dp" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/button4"
+        android:layout_marginLeft="24dp"
+        android:layout_marginStart="24dp"
+        android:layout_toEndOf="@+id/imageView"
+        android:layout_toRightOf="@+id/imageView"
+        app:srcCompat="@drawable/dice1" />
+    <!--app:layout_constraintTop_toBottomOf="@+id/imageView"-->
+    <!--app:layout_constraintLeft_toRightOf="@+id/imageView"-->
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView"
+        android:layout_marginTop="48dp"
+        android:layout_toLeftOf="@+id/textView4"
+        android:layout_toStartOf="@+id/textView4"
+        app:srcCompat="@drawable/dice1" />
+        <!--app:layout_constraintTop_toBottomOf="@+id/imageView"-->
+        <!--app:layout_constraintLeft_toRightOf="@+id/imageView"-->
+
+
+
+
+    <Button
+        android:id="@+id/holdButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/button4"
+        android:layout_alignBottom="@+id/button4"
+        android:layout_toEndOf="@+id/userScore"
+        android:layout_toRightOf="@+id/userScore"
+        android:onClick="holdScore"
+        android:text="Hold"
+        app:layout_constraintLeft_toRightOf="@+id/rollButton"
+        app:layout_constraintTop_toTopOf="@+id/imageView" />
+
+    <Button
+        android:id="@+id/button4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/imageView"
+        android:layout_marginLeft="12dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="31dp"
+        android:layout_toEndOf="@+id/holdButton"
+        android:layout_toRightOf="@+id/holdButton"
+        android:onClick="resetScore"
+        android:text="Reset"
+        app:layout_constraintLeft_toRightOf="@+id/holdButton"
+        app:layout_constraintTop_toTopOf="@+id/imageView" />
+
+    <Button
+        android:id="@+id/rollButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/holdButton"
+        android:layout_alignBottom="@+id/holdButton"
+        android:layout_alignLeft="@+id/textView"
+        android:layout_alignStart="@+id/textView"
+        android:onClick="rollDice"
+        android:text="Roll"
+        app:layout_constraintLeft_toLeftOf="@+id/textView"
+        app:layout_constraintTop_toTopOf="@+id/imageView" />
+
+    <TextView
+        android:id="@+id/turnScoreHeading"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/turn"
+        android:layout_alignStart="@+id/turn"
+        android:layout_below="@+id/rollButton"
+        android:layout_marginTop="51dp"
+        android:text="Turn Score:"
+        app:layout_constraintLeft_toLeftOf="@+id/rollButton"
+        app:layout_constraintTop_toBottomOf="@+id/rollButton" />
+
+    <TextView
+        android:id="@+id/turnScore"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/turnScoreHeading"
+        android:layout_alignBottom="@+id/turnScoreHeading"
+        android:layout_toEndOf="@+id/textView"
+        android:layout_toRightOf="@+id/textView"
+        android:text="0"
+        app:layout_constraintLeft_toRightOf="@+id/turnScoreHeading"
+        app:layout_constraintTop_toBottomOf="@+id/holdButton" />
+
+    <TextView
+        android:id="@+id/turn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/rollButton"
+        android:layout_alignStart="@+id/rollButton"
+        android:layout_below="@+id/holdButton"
+        android:layout_marginTop="29dp"
+        android:text="Your"
+        app:layout_constraintLeft_toLeftOf="@+id/turnScoreHeading"
+        app:layout_constraintTop_toBottomOf="@+id/rollButton" />
+
+</RelativeLayout>
